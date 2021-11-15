@@ -12,8 +12,6 @@ Design Criteria:
   viii. Return (-1) for error conditions 
 */
 
-#include <stdlib.h>
-
 struct Stack{
     int size;
     int* array;
