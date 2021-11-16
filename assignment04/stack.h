@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 struct Stack;
 struct Stack* setupStack(int size);
 int isFull(struct Stack* stack);

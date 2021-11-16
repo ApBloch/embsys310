@@ -1,4 +1,4 @@
-#includue "stack.h"
+#include "stack.h"
 
 /*
 Design Criteria:
@@ -42,6 +42,7 @@ int isEmpty(struct Stack* stack)
 {
     return stack->counter == -1;
 }
+
 
 int push(struct Stack* stack, int value)
 {

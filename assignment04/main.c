@@ -1,3 +1,6 @@
+#include "stack.h"
+
+
 #define RCC_BASE 0x40021000
 #define RCC_AHB2ENR (*((unsigned int*)(RCC_BASE + 0x4c)))
 
@@ -11,9 +14,17 @@
 void delay(int unit);
 void func1(int a, int b, int c, int d, int e);
 void func2();
+void test1();
+void test2();
+void test3();
 
 int main()
 {
+    //Create Stack
+    //struct Stack* stack = createStack(4);
+    test1();
+    test2();
+    test3();
     //Run function 2
     func2();
   
@@ -34,6 +45,35 @@ int main()
    
   return 0;
 }
+
+//test if stack ignores and indicates too many push commands
+void test1()
+{
+    struct Stack* stack = setupStack(3);
+    printf("Pushing 1 into stack. Error = %d\n", push(stack,1));
+    printf("Pushing 2 into stack. Error = %d\n", push(stack,2));
+    printf("Pushing 3 into stack. Error = %d\n", push(stack,3));
+    printf("Pushing 4 into stack. Error = %d\n", push(stack,4));
+    printf("Popping last value. Value should be 3. Value = %d\n", pop(stack));
+}
+
+//test pop if nothing in stack
+void test2()
+{
+    struct Stack* stack = setupStack(3);
+    printf("Pop with nothing in stack. Should be -1. Value = %d\n", pop(stack));
+}
+
+//test if push will store a float
+//should change value to a int ie 14.3 -> 14
+void test3()
+{
+  struct Stack* stack = setupStack(3);
+  printf("Try to store a float 14.3 in stack\n", push(stack,14.3));
+  printf("Popping last value. Value should be 14. Value = %d\n", pop(stack));
+}
+
+
 
 void func1(int a, int b, int c, int d, int e)
 {
