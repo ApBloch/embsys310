@@ -1,6 +1,5 @@
 #includue "stack.h"
 
-
 /*
 Design Criteria:
   i. The stack should have a predefined size 
@@ -61,3 +60,4 @@ int pop(struct Stack* stack)
     stack->counter--;
     return value;
 }
+
