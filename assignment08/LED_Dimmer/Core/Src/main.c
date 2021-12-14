@@ -101,11 +101,11 @@ int main(void)
   {
     for(int i = 0; i<65535;i += 10)
     {
-      TIM15->CCR1 = i;
+      TIM15->CCR1 = i;          //set the CCR to i and increase it by 10 until it reaches max value of PWM
     }
     for(int i = 65535; i > 1; i -= 10)
     {
-      TIM15->CCR1 = i;
+      TIM15->CCR1 = i;          //lower CCR back down
     }
     /* USER CODE END WHILE */
 
